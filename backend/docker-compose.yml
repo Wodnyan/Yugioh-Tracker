@@ -7,6 +7,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MD_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MD_PASSWORD}
+    volumes:
+      - /docker/db:/data/db
     ports:
       - 27017:27017
 

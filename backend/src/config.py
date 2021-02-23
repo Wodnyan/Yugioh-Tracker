@@ -5,8 +5,6 @@ import os
 env_path = Path('../')
 load_dotenv(env_path)
 
-print(os.getenv('DB_CONNECTION_URL'))
-
 class Config:
     TESTING = os.getenv('TESTING')
     FLASK_DEBUG = os.getenv('FLASK_DEBUG')
