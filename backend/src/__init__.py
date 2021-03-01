@@ -13,12 +13,12 @@ def create_app():
     app.config.from_object(Config)
     client.init_app(app)
 
-    api_bp = Blueprint('api', url_prefix='/api/v1', import_name=__name__)
+    api_bp = Blueprint("api", url_prefix="/api/v1", import_name=__name__)
     api = Api(api_bp)
     app.register_blueprint(api_bp)
 
 
     # Cards
-    api.add_resource(Cards, '/cards')
+    api.add_resource(Cards, "/cards")
 
     return app

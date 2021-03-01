@@ -9,4 +9,4 @@ class Cards(Resource):
     def get(self):
         cards = Card.get_all()
         return jsonify(message="success", temp=cards)
-    
+

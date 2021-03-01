@@ -10,17 +10,25 @@ class Model:
         pass
 
     @staticmethod
+    def to_json(data):
+        return json.loads(json_util.dumps(data))
+
+    @staticmethod
     def get_all():
         docs = client.db[Model.tableName].find()
         output = []
         for doc in docs:
-            output.append(json.loads(json_util.dumps(doc)))
+            output.append(Card.to_json(doc))
 
         return output
 
     @staticmethod
     def get_one(id):
         return client.db[Model.tableName].find_one({"_id": ObjectId(id)})
+
+    @staticmethod
+    def insert(data):
+        return client.db[Model.tableName].insert(data)
 
 class Card(Model):
     Model.tableName = "cards"
