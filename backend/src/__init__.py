@@ -5,7 +5,7 @@ from .config import Config
 from .models import client
 
 # Resources
-from .resources.cards import Cards
+from .resources.cards import Cards, Card
 
 
 def create_app():
@@ -20,5 +20,6 @@ def create_app():
 
     # Cards
     api.add_resource(Cards, "/cards")
+    api.add_resource(Card, "/cards/<string:card_id>")
 
     return app
